@@ -131,3 +131,48 @@ do
     }
 
 } while(tryAgain == false);
+
+/* - 06 Description
+Prompt the user to enter a number.  Use a for-loop to calculate the sum of all the numbers from 1 to the number entered.
+Example
+>>Enter a number: << 100
+>> 5050
+Would you like to continue (y/n)? <<y
+>>Enter a number: << 20
+>> 210
+Would you like to continue (y/n)? <<n
+<<Goodbye! */
+
+Console.WriteLine("\n sum of all the numbers using Basic for Loop! ");
+
+bool continueAgain = true;
+do
+{
+    int intNumber = 0;
+    Console.Write("Please enter a number: ");
+    intNumber = int.Parse(Console.ReadLine());
+
+
+    Console.Write("The first {0} natural numbers are: ", intNumber);
+    int sum = 0;
+    //Loop to display and calculate the sum of the first 'n' numbers.
+    for (int i = 1; i <= intNumber; i++)
+    {
+        Console.Write("{0} ", i);
+        sum += i;
+    }
+    Console.WriteLine();
+    Console.WriteLine($"The sum of n numbers is: {sum}");
+
+    Console.Write($"Would you like to try again? Y/N  ");
+    string? userAnswer = Console.ReadLine();
+    if (userAnswer?.ToLower() == "n")
+    {
+        continueAgain = false;
+        Console.WriteLine($"Good bye!.");
+    }
+    else if (userAnswer?.ToLower() == "y")
+    {
+        continueAgain = true;
+    }
+} while (continueAgain);
